@@ -1,3 +1,23 @@
+def part2(data):
+    depth = 0
+    pos = 0
+    aim = 0
+
+    for line in data:
+        direction = line[0]
+        val = int(line[1])
+
+        if direction == "forward":
+            pos += val
+            depth += aim * val
+        elif direction == "up":
+            aim -= val
+        elif direction == "down":
+            aim += val
+
+    return depth * pos
+
+
 def part1(data):
     depth = 0
     pos = 0
@@ -23,3 +43,5 @@ if __name__ == "__main__":
 
 
     print("Part 1:", part1(data))
+    print("Part 2:", part2(data))
+
